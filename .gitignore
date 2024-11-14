@@ -1,20 +1,10 @@
-# Python
-_pycache_/
-*.py[cod]
-*.pyo
-.Python
-env/
-venv/
-ENV/
-*.env
+# Ignore any system files or temporary files
+.DS_Store
+Thumbs.db
 
-# Terraform
-.terraform/
-terraform.tfstate
-terraform.tfstate.*
-.terraform.lock.hcl
-*.tfvars
-
-# Logs and temp files
+# Ignore logs and temp files
 *.log
 *.tmp
+
+# Node modules (if applicable for local development)
+node_modules/
