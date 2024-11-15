@@ -21,8 +21,8 @@ steps:
   - '-c'
   - |
     echo "Configuring gcloud..."
-    gcloud config set project genuine-habitat-439408-a1
-    gcloud config set functions/region us-central1
+    gcloud config set project cloud-resume-project-439503
+    gcloud config set functions/region us-east1
     echo "Deploying Cloud Function..."
     gcloud functions deploy VisitorCountFunc  \
       --region=us-east1 \
