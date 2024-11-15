@@ -4,6 +4,7 @@ steps:
   args:
   - '-c'
   - |
+    set -e
     echo "Initializing Terraform..."
     terraform init -input=false -no-color
 
@@ -12,6 +13,7 @@ steps:
   args:
   - '-c'
   - |
+    set -e
     echo "Applying Terraform configuration..."
     terraform apply -auto-approve -input=false -no-color
 
