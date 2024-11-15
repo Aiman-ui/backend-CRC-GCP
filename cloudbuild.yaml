@@ -4,18 +4,16 @@ steps:
   args:
   - '-c'
   - |
-    set -e
     echo "Initializing Terraform..."
-    terraform init -input=false -no-color
+    terraform init -input=false -no-color -verbose
 
 - name: 'hashicorp/terraform:light'
   entrypoint: 'sh'
   args:
   - '-c'
   - |
-    set -e
     echo "Applying Terraform configuration..."
-    terraform apply -auto-approve -input=false -no-color
+    terraform apply -auto-approve -input=false -no-color -verbose
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'sh'
