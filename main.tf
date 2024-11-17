@@ -1,6 +1,6 @@
 provider "google" {
   project = "cloud-resume-project-439503 "
-  region  = "us-east1"
+  region  = "us-central1"
 }
 
 resource "google_cloudfunctions_function" "visitor_counter" {
