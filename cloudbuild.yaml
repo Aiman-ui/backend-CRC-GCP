@@ -10,7 +10,7 @@ steps:
 - name: 'hashicorp/terraform:light'
   entrypoint: 'sh'
   args:
-  - '-c'
+  - '-c'  
   - |
     echo "Applying Terraform configuration..."
     terraform apply -auto-approve -input=false -no-color
