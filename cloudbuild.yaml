@@ -24,7 +24,7 @@ steps:
     gcloud config set project cloud-resume-project-439503 
     gcloud config set functions/region us-central1
     echo "Deploying Cloud Function..."
-    gcloud functions deploy visitorcounter  \
+    gcloud functions deploy new-counter-func \
       --region=us-central1 \
       --runtime=python311 \
       --trigger-http \
