@@ -1,37 +1,44 @@
 steps:
-- name: 'hashicorp/terraform:light'
-  entrypoint: 'sh'
-  args:
-  - '-c'
-  - |
-    echo "Initializing Terraform..."
-    terraform init -input=false -no-color
+  # Step 1: Initialize Terraform
+  - name: 'hashicorp/terraform:light'
+    entrypoint: 'sh'
+    args:
+    - '-c'
+    - |
+      echo "Initializing Terraform..."
+      terraform init -input=false -no-color
 
-- name: 'hashicorp/terraform:light'
-  entrypoint: 'sh'
-  args:
-  - '-c'  
-  - |  
-    echo "Applying Terraform configuration..."
-    terraform apply -auto-approve -input=false -no-color
+  # Step 2: Validate Terraform Configuration
+  - name: "hashicorp/terraform:light"
+    args: ["validate"]
 
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'sh'
-  args:
-  - '-c'
-  - |  
-    echo "Configuring gcloud..."
-    gcloud config set project cloud-resume-project-439503 
-    gcloud config set functions/region us-central1
-    echo "Deploying Cloud Function..."
-    gcloud functions deploy new-counter-func \
-      --region=us-central1 \
-      --runtime=python311 \
-      --trigger-http \
-      --source=/workspace \
-      --entry-point=visitor_counter
+  # Step 3: Apply Terraform Configuration
+  - name: 'hashicorp/terraform:light'
+    entrypoint: 'sh'
+    args:
+    - '-c'
+    - |
+      echo "Applying Terraform configuration..."
+      terraform apply -auto-approve -input=false -no-color
+
+  # Step 4: Configure gcloud and Deploy Cloud Function (if needed)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'sh'
+    args:
+    - '-c'
+    - |
+      echo "Configuring gcloud..."
+      gcloud config set project cloud-resume-project-439503
+      gcloud config set functions/region us-central1
+      echo "Deploying Cloud Function..."
+      gcloud functions deploy new-counter-func \
+        --region=us-central1 \
+        --runtime=python311 \
+        --trigger-http \
+        --source=/workspace \
+        --entry-point=visitor_counter
 
 options:
   logging: CLOUD_LOGGING_ONLY
 
-timeout: '900s'
+timeout: '900s'  # 15 minutes
