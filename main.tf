@@ -4,7 +4,7 @@ provider "google" {
 }
 
 resource "google_cloudfunctions_function" "visitor_counter" {
-  name        = "VisitorCountFunc2"
+  name        = "new-conuter-02"
   runtime     = "python311"
   entry_point = "visitor_counter"
   source_archive_bucket = "aiman-devops.site"
