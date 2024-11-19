@@ -19,7 +19,7 @@ steps:
   entrypoint: 'sh'
   args:
   - '-c'
-  - |
+  - |  
     echo "Configuring gcloud..."
     gcloud config set project cloud-resume-project-439503 
     gcloud config set functions/region us-central1
