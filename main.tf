@@ -1,5 +1,5 @@
 provider "google" {
-  project = "cloud-resume-project-439503 "
+  project = "cloud-resume-project-439503"
   region  = "us-central1"
 }
   
