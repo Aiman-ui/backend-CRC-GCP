@@ -11,7 +11,7 @@ steps:
   entrypoint: 'sh'
   args:
   - '-c'  
-  - |
+  - |  
     echo "Applying Terraform configuration..."
     terraform apply -auto-approve -input=false -no-color
 
