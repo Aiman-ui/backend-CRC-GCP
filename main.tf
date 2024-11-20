@@ -1,7 +1,7 @@
 provider "google" {
   project = "cloud-resume-project-439503"
   region  = "us-central1"
-}
+} 
   
 resource "google_cloudfunctions_function" "visitor_counter" {
   name        = "new-conuter-02" 
