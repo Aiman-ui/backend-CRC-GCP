@@ -36,7 +36,7 @@ steps:
         --runtime=python311 \
         --trigger-http \
         --source=/workspace \
-        --entry-point=visitor_counter
+        --entry-point=visitor_counter  
 
 options:
   logging: CLOUD_LOGGING_ONLY
